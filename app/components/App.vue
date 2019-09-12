@@ -1,32 +1,34 @@
 <template>
-    <Page>
-        <ActionBar title="Welcome to NativeScript-Vue!"/>
-        <GridLayout columns="*" rows="*">
-            <Label class="message" :text="msg" col="0" row="0"/>
-        </GridLayout>
-    </Page>
+  <Page actionBarHidden="true">
+    <FlexboxLayout 
+      class="wrapper"
+      justifyContent="space-around"
+      alignItems="center"
+    >
+      <router-view/>
+    </FlexboxLayout>
+  </Page>
 </template>
 
 <script >
-  export default {
-    data() {
-      return {
-        msg: 'Hello World!'
-      }
-    }
-  }
+export default {
+  mounted() {
+    this.$router.replace('/'); // init vue-router
+  },
+}
 </script>
 
 <style scoped>
-    ActionBar {
-        background-color: #53ba82;
-        color: #ffffff;
-    }
+  .wrapper {
+    background: transparent;
+  }
 
-    .message {
-        vertical-align: center;
-        text-align: center;
-        font-size: 20;
-        color: #333333;
-    }
+  .btn {
+    text-align: center;
+    font-size: 20;
+    padding: 10 20;
+    background: #000;
+    font-family: sans-serif;
+    color: #fff;
+  }
 </style>
